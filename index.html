@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">           
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Challenge01 Encriptador</title>
+        <link rel="stylesheet" href="index.css"> 
+        <script src="./cripto.js" type="text/javascript"></script>            
+    </head>
+    <body class="caja">
+        <div class="columna logo">
+            <header>
+                <img src="./img/logo.svg" class="logo"/> 
+            </header>
+        </div>              
+        <div class="columna datos centrado">                                    
+            <div class="fila">                
+                <textarea id="txtTexto" title="ingrese el texto aquí" placeholder="ingrese el texto aquí"></textarea>                
+            </div>
+            <div id="botones" class="fila">
+                <div class="mensaje">
+                    <span class="ico-exclamacion"></span><small>Solo letras minúsculas y sin acentos</small>
+                </div>
+                <div class="fila centrado">               
+                    <button id="btnEncriptar" class="button cripto flex-sm-grow">Encriptar</button>
+                    <button id="btnDesencriptar" class="button cripto flex-sm-grow">Desencriptar</button>                          
+                </div>
+            </div>
+        </div>
+        <div class="columna resultados">
+            <div class="fila informa">                
+                <img src="./img/muñeco.png" />
+                <p><strong>Ningún mensaje fue encontrado</strong></p>
+                <p>Ingresa el texto que desees codificar o decodificar</p>                              
+            </div>
+            <div class="fila">
+                <textarea id="txtResultado" readonly title="texto codificado"></textarea>
+            </div>
+            <div class="fila">
+                <button id="btnCopiar" class="button cripto">Copiar</button>
+            </div>               
+        </div>
+        <footer>
+            <p>Author: MJ</p>
+        </footer>
+    </body>
+    
+        <script type="text/javascript">
+            const miClipboard = navigator.clipboard;
+            const resultados = document.querySelector('.resultados');
+            var txtFuente = document.querySelector("#txtTexto");
+            var txtResultado = document.querySelector("#txtResultado");
+           
+            function encriptarTexto(){
+                var datos = txtFuente.value;
+                if(datos.length > 0){
+                    var procesado = encripta(datos);
+                    if( procesado != '' &&  procesado != null){
+                        resultados.classList.add('mostrar')                
+                        txtResultado.value = procesado;
+                    }
+                    else{
+                        resultados.classList.remove('mostrar')                
+                        txtResultado.value = '';
+                    }
+                }
+                else
+                    alert('Nada que encriptar.');
+            }
+
+            function desencriptarTexto(){                
+                var datos = txtFuente.value;
+                if(datos.length > 0){
+                    var procesado = decodifica(datos);                    
+                    if( procesado != '' &&  procesado != null){
+                        resultados.classList.add('mostrar')                
+                        txtResultado.value = procesado;
+                    }
+                    else{
+                        resultados.classList.remove('mostrar')                
+                        txtResultado.value = '';
+                    }
+                }
+                else
+                    alert('Nada que desencriptar');
+            }
+
+            function copiarClipboard(){
+                let datoCopia = txtResultado;
+                datoCopia.select();
+                document.execCommand("copy");
+                datoCopia.blur();
+            }
+
+            var btnEncriptar = document.querySelector("#btnEncriptar");	        
+            btnEncriptar.onclick = encriptarTexto;
+            
+            var btnDesencriptar = document.querySelector("#btnDesencriptar");	        
+            btnDesencriptar.onclick = desencriptarTexto;
+
+            var btnCopiar = document.querySelector("#btnCopiar");	        
+            btnCopiar.onclick = copiarClipboard;
+
+            txtFuente.oninput = validaLetras;
+        </script>             
+</html>
