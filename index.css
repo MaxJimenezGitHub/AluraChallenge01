@@ -25,7 +25,8 @@ textarea {
   border: none;
   outline: none;
   background: inherit;
-  height: auto;
+  max-height: 300px;
+  height: 300px;
 }
 textarea::-webkit-scrollbar{
   width: 0px;
@@ -103,12 +104,10 @@ button.cripto:hover,button.cripto:focus {
 }
 #txtResultado{
   font-size: 1.5rem;
-  max-width: 100%;
-  word-break: break-all;
-  overflow-y: auto;
+  /* word-break: break-all;
+  overflow-y: auto; */
   color: #495057;
   text-align: center;
-  size-adjust: auto;
 }
 
 /* Meter estilos para responsive */
