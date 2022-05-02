@@ -1,0 +1,141 @@
+html {
+  font-family: 'Inter', sans-serif;
+}
+body {
+    box-sizing: border-box;
+    font-size: 14px;    
+    background-color: #f3f5fc;
+}
+footer{  
+  position: absolute;
+  bottom: 0;  
+  padding-left: 1rem;
+  margin-bottom: auto;
+}
+header {
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+}
+img {
+  height: auto;
+  max-width: 100%;  
+}
+textarea {
+  resize: none;
+  border: none;
+  outline: none;
+  background: inherit;
+  height: auto;
+}
+textarea::-webkit-scrollbar{
+  width: 0px;
+}
+#txtTexto {
+  font-size: 2rem;
+  text-align: left; 
+  color: #0A3871;
+  margin-top: 10rem;
+  margin-left: 5rem;
+  max-width: 100%;   
+}
+#botones{
+  margin-top: 20rem;
+  margin-left: 5rem;
+  max-width: 100%; 
+}
+.mensaje{  
+  height: 1.5rem;
+  font-size: 0.8rem;
+  justify-content: space-around; 
+  align-items: flex-start;
+}
+.ico-exclamacion{
+  background: url('./img/exclamation.png');
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin: -0.8px 0.5rem;
+}
+button{
+  border-radius: 1.5rem;
+  padding: 1rem;
+  margin: 0.5rem 0px;
+  cursor: pointer;
+}
+button.cripto {
+  color: #0A3871;
+  border: solid 1px #0A3871;  
+}
+button.cripto:hover,button.cripto:focus {
+  background-color: #0A3871;
+  color: #fff;
+  border: solid 1px #000;  
+}
+.resultados{
+  background-color: #fff;
+  border: solid 1px #ddd;
+  position: relative;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 1rem;
+  min-height: calc(25vh - 2rem);
+  color: #495057;
+}
+.resultados {
+  text-align: center;
+  align-items: center;
+}
+.informa strong{
+  color: #343A40;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.resultados.mostrar .informa {
+  display: none;
+}
+.resultados .button {
+  visibility: hidden;
+  bottom: 0; 
+  position: absolute;
+}
+.resultados.mostrar .button {
+  visibility: visible;
+}
+#txtResultado{
+  font-size: 1.5rem;
+  max-width: 100%;
+  word-break: break-all;
+  overflow-y: auto;
+  color: #495057;
+  text-align: center;
+  size-adjust: auto;
+}
+
+/* Meter estilos para responsive */
+@media only screen and (min-width: 700px) {
+  .caja {
+    display: flex;
+  }
+  .bloque {
+    display: block;
+  }
+  .columna {
+    flex-direction: column;
+  }
+  .fila {
+    flex-direction: row;
+  }
+  .centrado{
+    justify-content: center;
+  }
+  .logo{
+    width: 20%;
+  }
+  .datos {
+    width: 55%;
+    justify-content: center;
+  }
+  .resultados {
+    width: 25%;
+  }
+}
