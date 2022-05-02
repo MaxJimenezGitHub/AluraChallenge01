@@ -51,6 +51,13 @@
             var txtFuente = document.querySelector("#txtTexto");
             var txtResultado = document.querySelector("#txtResultado");
            
+            txtFuente.addEventListener("keyup", e =>{
+                let scHeight = e.target.scrollHeight;                
+                txtFuente.style.height = (2+scHeight)+"px"; //'${scHeight}px';
+                // console.log(scHeight);
+                //txtResultado.style.height = (25+element.scrollHeight)+"px";
+            });
+            
             function encriptarTexto(){
                 var datos = txtFuente.value;
                 if(datos.length > 0){
@@ -75,6 +82,7 @@
                     if( procesado != '' &&  procesado != null){
                         resultados.classList.add('mostrar')                
                         txtResultado.value = procesado;
+                        txtResultado.scrollHeight = procesado.length;
                     }
                     else{
                         resultados.classList.remove('mostrar')                
